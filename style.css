@@ -77,6 +77,7 @@ html {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skill-card::before {
@@ -97,6 +98,14 @@ html {
 .skill-card:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Skill card text improvements */
+.skill-card div {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 /* Certification card enhancements */
@@ -168,15 +177,29 @@ html {
   box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.4);
 }
 
-/* Enhanced logo styling */
+/* Enhanced logo styling - consolidated */
 .skill-card img {
   transition: all 0.3s ease;
-  filter: brightness(1) contrast(1.1);
+  filter: brightness(1.2) contrast(1.4) saturate(1.3) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  border-radius: 6px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .skill-card:hover img {
   transform: scale(1.1) rotate(2deg);
-  filter: brightness(1.2) contrast(1.2);
+  filter: brightness(1.4) contrast(1.5) saturate(1.4) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Headshot styling */
@@ -201,10 +224,34 @@ html {
   50% { transform: translateY(-2px); }
 }
 
+/* Logo animation */
 .skill-card img {
   animation: logoFloat 3s ease-in-out infinite;
 }
 
 .skill-card:hover img {
   animation: none;
+}
+
+/* Logo background improvements for better readability */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
 }
